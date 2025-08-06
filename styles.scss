@@ -15,6 +15,9 @@ body {
     margin: 0;
     color: #fff;
     font-family: "Poppins";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 canvas#stars-background {
@@ -23,12 +26,14 @@ canvas#stars-background {
 }
 
 header {
-    background-color: #00d9ffc1;
+    background-color: #7700ff1e;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 10px;
     text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
 }
 
 #logo {
@@ -41,11 +46,12 @@ header {
 
 .section {
     background-color: #1313133d;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
     padding: 20px;
+    width: 80%;
 
     &:not(:last-of-type) {
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
 
 }
@@ -103,7 +109,6 @@ header {
 #technologies {
     display: grid;
     grid-template-columns: 40% 60%;
-    margin-bottom: 10px;
 
     .left {
         margin-right: 20px;
@@ -188,6 +193,7 @@ header {
         margin-left: 0;
         display: flex;
         gap: 20px;
+
         button {
             height: 100px;
             width: 100px;
@@ -201,10 +207,12 @@ header {
             justify-content: center;
             align-items: center;
             cursor: pointer;
+
             span {
                 height: fit-content;
                 width: fit-content;
             }
+
             &:hover {
                 filter: brightness(0.8);
             }
@@ -228,12 +236,12 @@ header {
             background-color: #d60000;
 
             .icon {
-                            background: url(img/stop.svg);
-            height: 50%;
-            aspect-ratio: 1/1;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+                background: url(img/stop.svg);
+                height: 50%;
+                aspect-ratio: 1/1;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
             }
 
         }
@@ -293,7 +301,50 @@ header {
             height: 300px;
             border: #fff solid 2px;
             background-color: #080808;
+            position: relative;
+            box-sizing: content-box;
+        }
 
+        .star {
+            border-radius: 100%;
+            background-color: #ffc400;
+            cursor: pointer;
+            position: absolute;
+            display: none;
         }
     }
+}
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 50px 0;
+    h2 {
+        margin-top: 0;
+    }
+    .qr {
+        img {
+            max-height: 200px;
+            border-radius: 10px;
+            filter: 
+            drop-shadow(0 0 4px rgba(162, 0, 255, 0.548))
+            drop-shadow(0 0 8px rgba(162, 0, 255, 0.548))
+            drop-shadow(0 0 16px rgba(162, 0, 255, 0.548));
+        }
+    }
+    a {
+     color: #fff;
+     margin: 10px;
+     &:hover {
+        filter: brightness(0.7);
+     }
+    }
+}
+footer {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7700ff1e;
+    width: 100%;
 }

@@ -56,7 +56,7 @@ function collide(a, b) {
         a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y
     );
 }
-function draw(boxes) {
+function drawAsteroids(boxes) {
     actx.fillStyle = "#000";
     actx.fillRect(0, 0, asteroids.width, asteroids.height);
 
@@ -75,7 +75,7 @@ function draw(boxes) {
     );
 }
 let asteroidRun = false;
-function update() {
+function updateAsteroids() {
     if (!asteroidRun) return;
     boxes.forEach((box) => {
         box.x += box.speed.x;
@@ -123,14 +123,14 @@ function update() {
         asteroidScore.textContent = parseInt(asteroidScore.textContent) + 1;
     });
 
-    draw(boxes);
-    requestAnimationFrame(update);
+    drawAsteroids(boxes);
+    requestAnimationFrame(updateAsteroids);
 }
 
 function initAsteroids() {
-    if (asteroidRun) return
+    if (asteroidRun) return;
     message.textContent = "";
-    livesCounter.textContent = player.lives
+    livesCounter.textContent = player.lives;
     for (let i = 0; i < amount; i++) {
         boxes.push(
             new Box(randomInt(0, asteroids.width), -100, 15, 15, {
@@ -139,7 +139,7 @@ function initAsteroids() {
             })
         );
     }
-    requestAnimationFrame(update);
+    requestAnimationFrame(updateAsteroids);
     asteroidRun = true;
 }
 function stopAsteroids(m = "") {
@@ -168,3 +168,72 @@ addEventListener("keydown", function (e) {
 addEventListener("keyup", function (e) {
     keys[e.key] = false;
 });
+
+//estrella
+
+const starbox = document.getElementById("star-box");
+const star = {
+    size: 10,
+    lives: 3,
+    wait: 5000,
+    decrease: 0.95,
+    decMult: 1
+};
+const defStar = structuredClone(star);
+
+star.element = (function () {
+    console.log(this);
+    const star = document.createElement("div");
+    star.classList.add("star");
+    return star;
+})();
+
+star.setPos = function (pos) {
+    star.element.style.left = Math.max(pos.x - star.size, 0) + "px";
+    star.element.style.top = Math.max(pos.y - star.size, 0) + "px";
+}
+starbox.appendChild(star.element);
+star.element.style.width = star.size + "px";
+star.element.style.height = star.size + "px";
+star.element.addEventListener("click", () => {
+    star.setPos({
+        x: randomInt(0, starbox.offsetWidth),
+        y: randomInt(0, starbox.offsetHeight)
+    })
+})
+let runStar = false;
+
+
+function starUpdate() {
+    star.setPos({
+        x: randomInt(0, starbox.offsetWidth),
+        y: randomInt(0, starbox.offsetHeight)
+    })
+    star.wait *= star.decrease
+    star.decrease *= star.decMult
+}
+
+function starInit(difficulty) {
+
+    runStar = true;
+
+    setTimeout()
+
+    star.element.style.display = "block";
+    star.setPos({
+        x: randomInt(0, starbox.offsetWidth),
+        y: randomInt(0, starbox.offsetHeight)
+    })
+}
+function starStop() {
+    star.element.style.display = "none";
+    reset(star, defStar);
+}
+star.setPos({
+    x: randomInt(0, starbox.offsetWidth),
+    y: randomInt(0, starbox.offsetHeight)
+})
+
+
+
+

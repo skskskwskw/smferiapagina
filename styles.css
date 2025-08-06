@@ -14,6 +14,9 @@ body {
   margin: 0;
   color: #fff;
   font-family: "Poppins";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 canvas#stars-background {
@@ -22,12 +25,14 @@ canvas#stars-background {
 }
 
 header {
-  background-color: rgba(0, 217, 255, 0.7568627451);
+  background-color: rgba(119, 0, 255, 0.1176470588);
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 10px;
   text-align: center;
+  margin-bottom: 50px;
+  width: 100%;
 }
 
 #logo {
@@ -40,11 +45,12 @@ header {
 
 .section {
   background-color: rgba(19, 19, 19, 0.2392156863);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
   padding: 20px;
+  width: 80%;
 }
 .section:not(:last-of-type) {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .dropdown {
@@ -89,7 +95,6 @@ header {
 #technologies {
   display: grid;
   grid-template-columns: 40% 60%;
-  margin-bottom: 10px;
 }
 #technologies .left {
   margin-right: 20px;
@@ -253,6 +258,46 @@ header {
   height: 300px;
   border: #fff solid 2px;
   background-color: #080808;
+  position: relative;
+  box-sizing: content-box;
+}
+#games #catchstar .star {
+  border-radius: 100%;
+  background-color: #ffc400;
+  cursor: pointer;
+  position: absolute;
+  display: none;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 50px 0;
+}
+#contact h2 {
+  margin-top: 0;
+}
+#contact .qr img {
+  max-height: 200px;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 4px rgba(162, 0, 255, 0.548)) drop-shadow(0 0 8px rgba(162, 0, 255, 0.548)) drop-shadow(0 0 16px rgba(162, 0, 255, 0.548));
+}
+#contact a {
+  color: #fff;
+  margin: 10px;
+}
+#contact a:hover {
+  filter: brightness(0.7);
+}
+
+footer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(119, 0, 255, 0.1176470588);
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
