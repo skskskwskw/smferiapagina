@@ -102,8 +102,8 @@
             for (let i = 0; i < stars.amount; i++) {
                 const s = size();
                 const sp = speed();
-                sp.x = (s / 30) * 0.2;
-                sp.y = (s / 30) * 0.4;
+                sp.x = (s / 30) * 0.8;
+                sp.y = (s / 30) * 1.2;
 
                 stars.list.push(new Star(s, sp, thickness(), 0.2));
             }
